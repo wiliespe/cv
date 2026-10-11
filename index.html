@@ -440,26 +440,8 @@ function copyContactLink() {
   } else { showToast('Datos de contacto listos'); }
 }
 function downloadPdfMock() {
-  showToast('Generando PDF, espera un momento...');
-  const element = document.getElementById('cvDocument');
-  const photoWrapper = element.querySelector('img') ? element.querySelector('img').parentElement : null;
-
-  // Ocultar foto para evitar distorsión en el PDF
-  if (photoWrapper) photoWrapper.style.visibility = 'hidden';
-
-  const opt = {
-    margin: [6, 6, 6, 6],
-    filename: 'CV-Wilian-Flores-Pena.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true, logging: false, windowWidth: 860 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-  };
-
-  html2pdf().set(opt).from(element).save().then(() => {
-    if (photoWrapper) photoWrapper.style.visibility = '';
-    showToast('PDF descargado correctamente');
-  });
+  showToast('Generando PDF...');
+  setTimeout(() => window.print(), 700);
 }
 function showToast(message) {
   const toast = document.getElementById('toastNotification');
