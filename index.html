@@ -14,10 +14,8 @@
 <button class="px-space-sm py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="btn-tmpl-clasica" onclick="setTemplateStyle('clasica')" type="button">Clásica Monocroma</button>
 <button class="px-space-sm py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="btn-tmpl-compacta" onclick="setTemplateStyle('compacta')" type="button">Alta Densidad</button>
 </div>
-<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant no-print">
-<span class="material-symbols-outlined text-[15px] text-secondary">visibility</span>
-<span id="visitCounter">...</span>
-<span>visitas</span>
+<span class="no-print">
+<img src="https://hits.sh/wiliespe.github.io/cv.svg?style=flat&label=visitas&color=6750A4&labelColor=e8def8" alt="visitas" style="height:22px;vertical-align:middle;" />
 </span>
 <button class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="copyContactLink()" type="button"><span class="material-symbols-outlined text-[15px]">share</span><span id="copyLinkText">Compartir</span></button>
 <button class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="window.print()" type="button"><span class="material-symbols-outlined text-[15px]">print</span><span>Imprimir</span></button>
@@ -417,17 +415,6 @@ Técnico IT y desarrollador web con experiencia en soporte técnico presencial/r
 
 </div>
 <script>
-// Contador de visitas
-fetch('https://api.countapi.xyz/hit/wiliespe-cv/visits')
-  .then(r => r.json())
-  .then(data => {
-    const el = document.getElementById('visitCounter');
-    if (el) el.textContent = data.value.toLocaleString('es-ES');
-  })
-  .catch(() => {
-    const el = document.getElementById('visitCounter');
-    if (el) el.textContent = '—';
-  });
 
 function setTemplateStyle(styleName) {
   const doc = document.getElementById('cvDocument');
