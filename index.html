@@ -472,8 +472,13 @@ function copyContactLink() {
   } else { showToast('Datos de contacto listos'); }
 }
 function downloadPdfMock() {
-  showToast('Generando PDF...');
-  setTimeout(() => window.print(), 700);
+  const link = document.createElement('a');
+  link.href = 'CV_Wilian_Flores_Pena.pdf';
+  link.download = 'CV_Wilian_Flores_Pena.pdf';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  showToast('Descargando CV en PDF...');
 }
 function showToast(message) {
   const toast = document.getElementById('toastNotification');
